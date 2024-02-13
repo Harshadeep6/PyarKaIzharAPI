@@ -6,9 +6,7 @@ import Text from "./db/texts.js";
 
 const app = express();
 
-app.use(cors({
-  origin: 'http://localhost:5173'
-}));
+app.use(cors());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
   // Other CORS headers if needed
