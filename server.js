@@ -9,6 +9,13 @@ const app = express();
 app.use(cors({
   origin: 'http://localhost:5173'
 }));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+  // Other CORS headers if needed
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
